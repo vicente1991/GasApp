@@ -1,6 +1,6 @@
 export interface GasolineraResponse {
   Fecha: string
-  ListaEESSPrecio: Gasolinera[]
+  results: Gasolinera[]
   Nota: string
   ResultadoConsulta: string
 }

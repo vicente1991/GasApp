@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Gasolinera } from 'src/app/interfaces/gasolinera.interface';
 import { GasolineraService } from 'src/app/services/gasolinera.service';
 
@@ -9,6 +9,7 @@ import { GasolineraService } from 'src/app/services/gasolinera.service';
 })
 export class GasolineraItemComponent implements OnInit {
 
+  @Input() gasolinera!: Gasolinera;
   gasolineraList!: Gasolinera[];
   constructor(private gasolineraService: GasolineraService) { }
 

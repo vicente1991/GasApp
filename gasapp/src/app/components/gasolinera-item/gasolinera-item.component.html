@@ -1,1 +1,12 @@
-<p>gasolinera-item works!</p>
+<div fxLayout="column" [ngSwitch]="gasolinera.precioGasolina95E5">
+    
+    <mat-card>
+        <mat-card-content>
+            
+            <h3 class="ellipsis">{{gasolinera.municipio}} </h3>
+    
+            <div class="ellipsis">{{gasolinera.precioGasolina95E5}}</div>
+            
+        </mat-card-content>
+    </mat-card>
+</div>

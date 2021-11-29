@@ -1,1 +1,16 @@
-<p>gasolinera-list works!</p>
+<mat-form-field appearance="fill" [(ngModel)]="preciomin">
+    <mat-label>Precio Minimo</mat-label>
+    <input matInput type="number" placeholder="Ex. 0" min="0">
+    <span matSuffix>€</span>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Precio máximo</mat-label>
+    <input matInput type="number" placeholder="Ex. 0" max="999999">
+    <span matSuffix>€</span>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="filtrarPorPrecio(preciomin,preciomax)">filtrar por precio</button>
+
+  <div fxFlexFill fxLayout="row wrap" fxLayoutGap="20px grid" fxFlexAlign="center center">
+<app-gasolinera-item *ngFor="let g of gasolist" [gasolinera]="g"></app-gasolinera-item>
+</div>
