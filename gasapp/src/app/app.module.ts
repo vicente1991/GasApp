@@ -13,7 +13,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import { MaterialImportsModule } from './modules/material-imports.module';
-import { DialogGasolineraComponent } from './dialogs/dialog-gasolinera/dialog-gasolinera.component';
+import { DialogGasolineraComponent } from './components/dialog-gasolinera/dialog-gasolinera.component';
+
 
 @NgModule({
   declarations: [
