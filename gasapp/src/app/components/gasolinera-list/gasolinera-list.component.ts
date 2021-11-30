@@ -38,7 +38,6 @@ export class GasolineraListComponent implements OnInit {
   }
 
   /* filtrarPorPrecio(preciomin: number,preciomax: number){
-     this.gasolist = this.gasoListFull
      if(preciomin>0 && preciomax>preciomin){
        let gasolineras: Gasolinera[] = this.gasolist.filter(gasolineras => gasolineras.id)
        this.gasolist = gasolineras

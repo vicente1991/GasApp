@@ -1,11 +1,15 @@
 <div fxLayout="column">
-   <mat-card>
+    <mat-card>
         <mat-card-content>
-            
-            <h3 class="ellipsis">{{gasolinera.municipio}} </h3>
-    
-            <div class="ellipsis">{{gasolinera.direccion}}</div>
-            
+            <h3 class="ellipsis">{{gasolinera.direccion}} </h3>
+            <div class="ellipsis">{{gasolinera.municipio}}</div>
+            <div class="ellipsis">{{gasolinera.provincia}}</div>
         </mat-card-content>
+        <mat-card-actions>
+            <p>Precio Gasoleo A: {{gasolinera.precioGasoleoA}}</p>
+            <p>Precio Gasolina 95 ES: {{gasolinera.precioGasolina95E5}}</p>
+            <p>Precio Gasolina 98 ES: {{gasolinera.precioGasolina98E5}}</p>
+            <p><button mat-raised-button color="primary" (click)="openDialog()">Ver más</button></p>
+          </mat-card-actions>
     </mat-card>
 </div>

@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ListaEESSPrecio } from 'src/app/interfaces/gasolinera.interface';
+
+export interface gasoDetail{
+  gasolinera: ListaEESSPrecio;
+}
 
 @Component({
   selector: 'app-dialog-gasolinera',
@@ -7,9 +13,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogGasolineraComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) private data: gasoDetail) { }
+
+  gasolinera!: ListaEESSPrecio;
 
   ngOnInit(): void {
+    this.gasolinera = this.data.gasolinera;
   }
 
 }
