@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GasolineraItemComponent } from './components/gasolinera-item/gasolinera-item.component';
@@ -12,6 +11,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import { MaterialImportsModule } from './modules/material-imports.module';
 import { DialogGasolineraComponent } from './components/dialog-gasolinera/dialog-gasolinera.component';
 
@@ -31,6 +31,7 @@ import { DialogGasolineraComponent } from './components/dialog-gasolinera/dialog
     MatCardModule,
     MatSelectModule,
     FormsModule,
+    FlexLayoutModule,
     MatIconModule,
     MatFormFieldModule,
     MaterialImportsModule

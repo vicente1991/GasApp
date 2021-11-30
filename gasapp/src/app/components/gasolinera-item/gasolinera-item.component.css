@@ -1,0 +1,30 @@
+
+.gaso-card {
+    width: 350px;
+}
+
+.gaso-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    display: inline-block; 
+    font-weight: bold;
+    margin: 0;
+}
+
+.gaso-overview {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    display: inline-block; 
+}
+
+.gaso-image {
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+    height: 200px;
+    border-radius: 10px;
+}

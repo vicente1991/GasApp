@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListaEESSPrecio, Provincia } from 'src/app/interfaces/gasolinera.interface';
+import { ListaEESSPrecio, Municipios, Provincia } from 'src/app/interfaces/gasolinera.interface';
 import { GasolineraService } from 'src/app/services/gasolinera.service';
 
 @Component({
@@ -12,10 +12,15 @@ export class GasolineraListComponent implements OnInit {
   gasoList: ListaEESSPrecio[] = [];
   gasoListFull: ListaEESSPrecio[] = [];
   provinciasList!: Provincia[];
-  provinciasSelected: String[] = [];
- 
+  provinciasSelected: string[] = [];
   preciomin!: number;
   preciomax!: number;
+  tipoGasolina!: string; 
+  municipio!: string;
+  municipioList!: Municipios[];
+  mostrar: boolean = false;
+
+
 
   constructor(private gasolineraService: GasolineraService) { }
 
@@ -33,18 +38,35 @@ export class GasolineraListComponent implements OnInit {
   }
 
   filterProvincias() {
-    console.log(this.gasoList)
     this.gasoList = this.gasoListFull.filter(gas => this.provinciasSelected.includes(gas.idProvincia));
+    this.getMunicipiosById();
   }
 
-  /* filtrarPorPrecio(preciomin: number,preciomax: number){
-     if(preciomin>0 && preciomax>preciomin){
-       let gasolineras: Gasolinera[] = this.gasolist.filter(gasolineras => gasolineras.id)
-       this.gasolist = gasolineras
- 
-     }else{
-       this.gasolineraService.getGasolinerasList();
-     }
-   }*/
+  filtrarPrecios(){
+    this.gasoList = this.gasoListFull
+    if(this.tipoGasolina.includes('precioGasoleoA')){
+      let gasolineraPrecios: ListaEESSPrecio[] = this.gasoList.filter(provincia => this.preciomin < Number.parseFloat(provincia.precioGasoleoA.replace(',','.')) && this.preciomax > Number.parseFloat(provincia.precioGasoleoA.replace(',','.')))
+      this.gasoList = gasolineraPrecios;  
+    }
+    if(this.tipoGasolina.includes('precioGasolina95E5')){
+      let gasolineraPrecios: ListaEESSPrecio[] = this.gasoList.filter(provincia => this.preciomin < Number.parseFloat(provincia.precioGasolina95E5.replace(',','.')) && this.preciomax > Number.parseFloat(provincia.precioGasolina95E5.replace(',','.')))
+      this.gasoList = gasolineraPrecios;  
+    }
+    if(this.tipoGasolina.includes('precioGasolina98E5')){
+        let gasolineraPrecios: ListaEESSPrecio[] = this.gasoList.filter(provincia => this.preciomin < Number.parseFloat(provincia.precioGasolina98E5.replace(',','.')) && this.preciomax > Number.parseFloat(provincia.precioGasolina98E5.replace(',','.')))
+        this.gasoList = gasolineraPrecios;  
+      }
+  }
+  getMunicipiosById(){
+    this.mostrar = true
+    this.gasolineraService.getMunicipios(this.provinciasSelected).subscribe(municipios => {
+      this.municipioList = municipios
+      console.log(municipios)
+    })
+  }
+  filterMunicipio(){
+    this.gasoList = this.gasoListFull
+    this.gasoList = this.gasoList.filter(gas => this.municipio == gas.municipio)
+  }
 
 }
