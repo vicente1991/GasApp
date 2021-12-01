@@ -12,6 +12,7 @@
         <p>Precio Gasoleo A: {{gasolinera.precioGasoleoA}}</p>
         <p>Precio Gasolina 95 ES: {{gasolinera.precioGasolina95E5}}</p>
         <p>Precio Gasolina 98 ES: {{gasolinera.precioGasolina98E5}}</p>
-        <p><button mat-raised-button color="primary" (click)="openDialog()">Detalles</button></p>
+        <p><button mat-raised-button color="warn" (click)="openDialog()">Detalles</button>
+        <button mat-raised-button color="warn" (click)="getGoogleMaps(gasolinera.direccion)">Ver en Google</button></p>
     </mat-card-actions>
 </mat-card>

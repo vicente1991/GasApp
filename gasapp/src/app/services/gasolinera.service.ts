@@ -39,4 +39,7 @@ export class GasolineraService {
   getMunicipios(id: string[]): Observable<Municipios[]>{
     return this.http.get<Municipios[]>(`https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/Listados/MunicipiosPorProvincia/${id}`)
   }
+  getGoogleMaps(direccion:String) {
+    return window.location.href=(`https://www.google.es/maps/search/${direccion}/`);
+  }
 }

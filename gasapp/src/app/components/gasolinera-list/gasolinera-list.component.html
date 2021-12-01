@@ -1,23 +1,23 @@
-
+<app-menu></app-menu>
 <mat-form-field appearance="fill">
   <mat-label>Provincias</mat-label>
   <mat-select name="gasolineras" [(ngModel)]="provinciasSelected" multiple>
     <mat-option *ngFor="let provincia of provinciasList" [value]="provincia.IDPovincia">{{provincia.Provincia}}</mat-option>
   </mat-select>
 </mat-form-field>
-<button mat-raised-button color="primary" (click)="filterProvincias()">Filtrar</button>
+<button mat-raised-button color="warn" (click)="filterProvincias()">Filtrar</button>
 
   <br>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="preciomin" type="number" min="0" max="9" step="0.5" placeholder="Indique el valor minimo">
+    <input matInput [(ngModel)]="preciomin" type="number" min="0" max="9" step="0.1" placeholder="Indique el valor minimo">
   </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="preciomax" type="number" min="0" max="9" step="0.5" placeholder="Indique el valor maximo">
+    <input matInput [(ngModel)]="preciomax" type="number" min="0" max="9" step="0.1" placeholder="Indique el valor maximo">
   </mat-form-field>
   <br>
   <mat-form-field appearance="fill">
-    <mat-label>Tipos de gasolina</mat-label>
+    <mat-label>Tipos de combustible</mat-label>
     <mat-select name="provincias" [(ngModel)]="tipoGasolina">
       <mat-option value="precioGasoleoA">
         GasoleoA
@@ -31,7 +31,7 @@
     </mat-select>
   </mat-form-field>
   
-  <button mat-raised-button color="primary" (click)="filtrarPrecios()">filtrar por precio</button>
+  <button mat-raised-button color="warn" (click)="filtrarPrecios()">Filtrar por precio</button>
   
   <br>
   <mat-form-field appearance="fill" *ngIf="mostrar">
@@ -43,7 +43,7 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <button *ngIf="mostrar" mat-raised-button color="primary" (click)="filterMunicipio()">Filtrar Municipios</button>
+  <button *ngIf="mostrar" mat-raised-button color="warn" (click)="filterMunicipio()">Filtrar Municipios</button>
 
 
   <div class="scroll-container" fxFlexFill fxLayout="row wrap" fxLayoutGap="20px grid" fxFlexAlign="center center">

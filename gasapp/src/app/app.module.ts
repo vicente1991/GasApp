@@ -14,6 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { MaterialImportsModule } from './modules/material-imports.module';
 import { DialogGasolineraComponent } from './components/dialog-gasolinera/dialog-gasolinera.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { DialogGasolineraComponent } from './components/dialog-gasolinera/dialog
     AppComponent,
     GasolineraItemComponent,
     GasolineraListComponent,
-    DialogGasolineraComponent
+    DialogGasolineraComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
