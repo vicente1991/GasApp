@@ -15,6 +15,16 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { MaterialImportsModule } from './modules/material-imports.module';
 import { DialogGasolineraComponent } from './components/dialog-gasolinera/dialog-gasolinera.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { LoginComponent } from './components/login/login.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule, USE_DEVICE_LANGUAGE, USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/compat/auth';
+import { AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+
 
 
 @NgModule({
@@ -23,7 +33,8 @@ import { MenuComponent } from './components/menu/menu.component';
     GasolineraItemComponent,
     GasolineraListComponent,
     DialogGasolineraComponent,
-    MenuComponent
+    MenuComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +47,14 @@ import { MenuComponent } from './components/menu/menu.component';
     FlexLayoutModule,
     MatIconModule,
     MatFormFieldModule,
-    MaterialImportsModule
+    MaterialImportsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireAuthGuardModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    provideStorage(() => getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent]
