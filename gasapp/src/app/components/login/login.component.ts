@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('name', resp.user?.displayName? resp.user?.displayName: '');
       localStorage.setItem('photo', resp.user?.photoURL? resp.user?.photoURL: '');
       localStorage.setItem('uid', resp.user?.uid? resp.user?.uid: '');
+      localStorage.setItem('email', resp.user?.email? resp.user?.email: '');
     });
 
   }

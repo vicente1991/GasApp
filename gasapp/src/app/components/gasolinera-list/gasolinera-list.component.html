@@ -1,4 +1,6 @@
 <app-menu></app-menu>
+<a [routerLink]="['/fav']" routerLinkActive="router-link-active" ><button mat-raised-button color="primary">Ir a gasolineras favoritas</button></a>
+<br>
 <mat-form-field appearance="fill">
   <mat-label>Provincias</mat-label>
   <mat-select name="gasolineras" [(ngModel)]="provinciasSelected" multiple>

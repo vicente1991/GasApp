@@ -42,4 +42,5 @@ export class GasolineraService {
   getGoogleMaps(direccion:String) {
     return window.location.href=(`https://www.google.es/maps/search/${direccion}/`);
   }
+
 }

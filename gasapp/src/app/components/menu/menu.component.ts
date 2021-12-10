@@ -12,4 +12,12 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getPhoto(){
+    localStorage.getItem('photo');
+  }
+  getEmail(){
+    localStorage.getItem('email');
+  }
+
+
 }

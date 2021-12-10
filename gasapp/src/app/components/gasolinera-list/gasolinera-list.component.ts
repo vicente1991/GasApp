@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ListaEESSPrecio, Municipios, Provincia } from 'src/app/interfaces/gasolinera.interface';
 import { GasolineraService } from 'src/app/services/gasolinera.service';
+import firebase from 'firebase/compat/app';
+
+
+const COLLECTION_USER = 'users';
 
 @Component({
   selector: 'app-gasolinera-list',
@@ -22,7 +28,7 @@ export class GasolineraListComponent implements OnInit {
 
 
 
-  constructor(private gasolineraService: GasolineraService) { }
+  constructor(private gasolineraService: GasolineraService,private firestore: AngularFirestore,private auth: AngularFireAuth) { }
 
   ngOnInit(): void {
     this.gasolineraService.getGasolinerasList().subscribe(gasolineras => {
@@ -68,5 +74,19 @@ export class GasolineraListComponent implements OnInit {
     this.gasoList = this.gasoListFull
     this.gasoList = this.gasoList.filter(gas => this.municipio == gas.municipio)
   }
+
+  googleAuth(){
+    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(resp => {
+      this.firestore.collection(COLLECTION_USER).doc(resp?.user?.uid)
+      .set({ name: resp.user?.displayName, 
+        email: resp.user?.email, 
+        photoUrl: resp.user?.photoURL });
+      localStorage.setItem('name', resp.user?.displayName? resp.user?.displayName: '');
+      localStorage.setItem('photoUrl', resp.user?.photoURL? resp.user?.photoURL: '');
+      localStorage.setItem('email', resp.user?.email? resp.user?.email: '');
+      localStorage.setItem('uid', resp.user?.uid? resp.user?.uid: '');
+    });
+  }
+  
 
 }

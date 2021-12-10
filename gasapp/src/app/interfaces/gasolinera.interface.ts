@@ -37,3 +37,10 @@ export interface Municipios {
   Provincia:   string;
   CCAA:        string;
 }
+
+export interface GasolineraFav{
+  id: string | undefined;
+  name: string;
+  poblacion: string;
+  provincia: string;
+}

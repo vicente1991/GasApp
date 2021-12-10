@@ -24,6 +24,7 @@ import { AngularFireAuthModule, USE_DEVICE_LANGUAGE, USE_EMULATOR as USE_AUTH_EM
 import { AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { GasolineraFavComponent } from './components/gasolinera-fav/gasolinera-fav.component';
 
 
 
@@ -34,7 +35,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     GasolineraListComponent,
     DialogGasolineraComponent,
     MenuComponent,
-    LoginComponent
+    LoginComponent,
+    GasolineraFavComponent
   ],
   imports: [
     BrowserModule,
