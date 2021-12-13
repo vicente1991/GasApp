@@ -25,6 +25,7 @@ export class GasolineraListComponent implements OnInit {
   municipio!: string;
   municipioList!: Municipios[];
   mostrar: boolean = false;
+  newLista!: string;
 
 
 
@@ -86,6 +87,10 @@ export class GasolineraListComponent implements OnInit {
       localStorage.setItem('email', resp.user?.email? resp.user?.email: '');
       localStorage.setItem('uid', resp.user?.uid? resp.user?.uid: '');
     });
+  }
+
+  addNuevaLista(){
+    this.firestore.collection(this.newLista).add({nombre: this.newLista});
   }
   
 
