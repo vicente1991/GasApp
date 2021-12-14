@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { User } from 'src/app/interfaces/user.interfaces';
 import firebase from 'firebase/compat/app';
+import { Router } from '@angular/router';
 
 
 const COLLECTION_USERS = 'users'; 
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   userList!: Observable<User[]>;
 
-  constructor(public auth: AngularFireAuth, private firestore: AngularFirestore) { }
+  constructor(public auth: AngularFireAuth, private firestore: AngularFirestore,private router: Router) { }
 
   ngOnInit(): void {
     this.getUserList();
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('photo', resp.user?.photoURL? resp.user?.photoURL: '');
       localStorage.setItem('uid', resp.user?.uid? resp.user?.uid: '');
       localStorage.setItem('email', resp.user?.email? resp.user?.email: '');
+      this.router.navigate(['/gasolinera']);
     });
 
   }

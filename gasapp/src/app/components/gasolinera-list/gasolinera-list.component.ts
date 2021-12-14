@@ -93,5 +93,6 @@ export class GasolineraListComponent implements OnInit {
     this.firestore.collection(this.newLista).add({nombre: this.newLista});
   }
   
+  
 
 }

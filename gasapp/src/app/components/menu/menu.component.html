@@ -1,7 +1,14 @@
-<p>
-    <mat-toolbar color="warn">
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
       <span>GasApp</span>
-      <img [src]="getPhoto()">
+      <span class="example-spacer"></span>
+      <button mat-button [matMenuTriggerFor]="menu">{{ getName() }}<mat-icon>loop</mat-icon></button>
+      <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+      <img [src]="getPhoto()" style="width: 60px; border-radius: 100%;">
       <p>{{getEmail()}}</p>
-    </mat-toolbar>
-  </p>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+

@@ -25,6 +25,7 @@ import { AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { GasolineraFavComponent } from './components/gasolinera-fav/gasolinera-fav.component';
+import { ListasComponent } from './components/listas/listas.component';
 
 
 
@@ -36,7 +37,8 @@ import { GasolineraFavComponent } from './components/gasolinera-fav/gasolinera-f
     DialogGasolineraComponent,
     MenuComponent,
     LoginComponent,
-    GasolineraFavComponent
+    GasolineraFavComponent,
+    ListasComponent
   ],
   imports: [
     BrowserModule,
